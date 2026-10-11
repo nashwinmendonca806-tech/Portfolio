@@ -1,0 +1,918 @@
+<!doctype html>
+<html lang="en" data-theme="dark">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Nashwin Mendonca | Mechanical Engineer</title>
+    <meta
+      name="description"
+      content="Portfolio of Nashwin Mendonca, mechanical engineering student at NIT Surat: SOLIDWORKS CAD, ANSYS topology optimization, 3D printing and DD Robocon robotics."
+    />
+    <meta name="theme-color" content="#05070d" />
+    <link rel="icon" href="favicon.svg" type="image/svg+xml" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&family=Space+Grotesk:wght@500;600;700&display=swap"
+    />
+    <link rel="stylesheet" href="css/styles.css" />
+    <script>
+      (function () {
+        var theme = null;
+        try {
+          theme = localStorage.getItem("theme");
+        } catch (error) {}
+        if (theme !== "light" && theme !== "dark") {
+          theme = window.matchMedia("(prefers-color-scheme: light)").matches ? "light" : "dark";
+        }
+        document.documentElement.dataset.theme = theme;
+        document.documentElement.classList.add("js");
+      })();
+    </script>
+  </head>
+  <body class="bg-canvas font-sans text-ink antialiased selection:bg-accent/30">
+    <!-- Icon sprite -->
+    <svg class="absolute size-0 overflow-hidden" aria-hidden="true" focusable="false">
+      <symbol id="i-cube" viewBox="0 0 24 24"><path d="M12 2 3 7v10l9 5 9-5V7l-9-5Z" /><path d="M3 7l9 5 9-5M12 12v10" /></symbol>
+      <symbol id="i-activity" viewBox="0 0 24 24"><path d="M22 12h-4l-3 9L9 3l-3 9H2" /></symbol>
+      <symbol id="i-lattice" viewBox="0 0 24 24"><path d="M3 20 12 4l9 16Z" /><path d="M7.5 12h9M9 16h6" /></symbol>
+      <symbol id="i-printer" viewBox="0 0 24 24"><path d="M6 9V2h12v7" /><rect x="3" y="9" width="18" height="8" rx="2" /><path d="M6 14h12v8H6Z" /></symbol>
+      <symbol id="i-ruler" viewBox="0 0 24 24"><path d="M21.3 15.3a2.4 2.4 0 0 1 0 3.4l-2.6 2.6a2.4 2.4 0 0 1-3.4 0L2.7 8.7a2.4 2.4 0 0 1 0-3.4l2.6-2.6a2.4 2.4 0 0 1 3.4 0Z" /><path d="m14.5 12.5 2-2M11.5 9.5l2-2M8.5 6.5l2-2M17.5 15.5l2-2" /></symbol>
+      <symbol id="i-rotate" viewBox="0 0 24 24"><path d="M21 12a9 9 0 1 1-2.6-6.4L21 8" /><path d="M21 3v5h-5" /></symbol>
+      <symbol id="i-grad" viewBox="0 0 24 24"><path d="M22 10 12 5 2 10l10 5 10-5Z" /><path d="M6 12v5c0 1.7 2.7 3 6 3s6-1.3 6-3v-5" /></symbol>
+      <symbol id="i-award" viewBox="0 0 24 24"><circle cx="12" cy="8" r="6" /><path d="m15.5 13.5 1.5 8.5-5-3-5 3 1.5-8.5" /></symbol>
+      <symbol id="i-trophy" viewBox="0 0 24 24"><path d="M8 21h8M12 17v4M7 4h10v5a5 5 0 0 1-10 0Z" /><path d="M7 6H4v1a3 3 0 0 0 3 3M17 6h3v1a3 3 0 0 1-3 3" /></symbol>
+      <symbol id="i-trend-down" viewBox="0 0 24 24"><path d="m22 17-8.5-8.5-5 5L2 7" /><path d="M16 17h6v-6" /></symbol>
+      <symbol id="i-arrow-right" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6" /></symbol>
+      <symbol id="i-arrow-up" viewBox="0 0 24 24"><path d="M12 19V5M5 12l7-7 7 7" /></symbol>
+      <symbol id="i-download" viewBox="0 0 24 24"><path d="M12 3v12M7 10l5 5 5-5M5 21h14" /></symbol>
+      <symbol id="i-mail" viewBox="0 0 24 24"><rect x="2" y="4" width="20" height="16" rx="2" /><path d="m22 6-10 7L2 6" /></symbol>
+      <symbol id="i-phone" viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z" /></symbol>
+      <symbol id="i-copy" viewBox="0 0 24 24"><rect x="9" y="9" width="13" height="13" rx="2" /><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1" /></symbol>
+      <symbol id="i-menu" viewBox="0 0 24 24"><path d="M4 6h16M4 12h16M4 18h16" /></symbol>
+      <symbol id="i-close" viewBox="0 0 24 24"><path d="M18 6 6 18M6 6l12 12" /></symbol>
+      <symbol id="i-chev-left" viewBox="0 0 24 24"><path d="m15 18-6-6 6-6" /></symbol>
+      <symbol id="i-chev-right" viewBox="0 0 24 24"><path d="m9 18 6-6-6-6" /></symbol>
+      <symbol id="i-sun" viewBox="0 0 24 24"><circle cx="12" cy="12" r="4" /><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41" /></symbol>
+      <symbol id="i-moon" viewBox="0 0 24 24"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z" /></symbol>
+    </svg>
+
+    <!-- Ambient background -->
+    <div aria-hidden="true" class="pointer-events-none fixed inset-0 -z-10 overflow-hidden">
+      <div class="bg-grid absolute inset-0"></div>
+      <div class="orb orb-ember"></div>
+      <div class="orb orb-ice"></div>
+      <div class="noise absolute inset-0"></div>
+    </div>
+
+    <div
+      id="progress"
+      class="fixed inset-x-0 top-0 z-[60] h-0.5 origin-left bg-linear-to-r from-accent via-rose-400 to-cool"
+      style="transform: scaleX(0)"
+    ></div>
+
+    <header id="nav" class="fixed inset-x-0 top-0 z-50">
+      <nav class="mx-auto flex max-w-7xl items-center justify-between px-5 py-4 sm:px-8" aria-label="Primary">
+        <a href="#top" class="flex items-center gap-3" aria-label="Back to top">
+          <span
+            class="grid size-10 place-items-center rounded-xl bg-linear-to-br from-accent to-orange-400 font-display text-sm font-bold text-white shadow-lg shadow-accent/30"
+            >NM</span
+          >
+          <span class="hidden font-display text-sm font-semibold tracking-wide text-ink sm:block">Nashwin Mendonca</span>
+        </a>
+
+        <ul
+          class="hidden items-center gap-1 rounded-full border border-line bg-surface p-1.5 text-sm font-medium backdrop-blur-xl md:flex"
+        >
+          <li><a href="#about" class="nav-link">About</a></li>
+          <li><a href="#skills" class="nav-link">Skills</a></li>
+          <li><a href="#projects" class="nav-link">Projects</a></li>
+          <li><a href="#certification" class="nav-link">Certification</a></li>
+          <li><a href="#contact" class="nav-link">Contact</a></li>
+        </ul>
+
+        <div class="flex items-center gap-3">
+          <button
+            id="theme-toggle"
+            type="button"
+            class="icon-btn size-10 rounded-xl"
+            aria-label="Switch to light theme"
+          >
+            <svg class="icon icon-sun" aria-hidden="true"><use href="#i-sun"></use></svg>
+            <svg class="icon icon-moon" aria-hidden="true"><use href="#i-moon"></use></svg>
+          </button>
+          <a href="#contact" class="btn-light hidden md:inline-flex">Let’s talk</a>
+          <button
+            id="menu-toggle"
+            type="button"
+            class="icon-btn size-10 rounded-xl md:hidden"
+            aria-expanded="false"
+            aria-controls="mobile-menu"
+            aria-label="Open menu"
+          >
+            <svg class="icon" aria-hidden="true" data-menu-open><use href="#i-menu"></use></svg>
+            <svg class="icon hidden" aria-hidden="true" data-menu-close><use href="#i-close"></use></svg>
+          </button>
+        </div>
+      </nav>
+
+      <div id="mobile-menu" class="hidden border-y border-line bg-canvas/95 px-5 py-4 backdrop-blur-xl md:hidden">
+        <ul class="flex flex-col gap-1 text-base">
+          <li><a href="#about" class="nav-link py-3">About</a></li>
+          <li><a href="#skills" class="nav-link py-3">Skills</a></li>
+          <li><a href="#projects" class="nav-link py-3">Projects</a></li>
+          <li><a href="#certification" class="nav-link py-3">Certification</a></li>
+          <li><a href="#contact" class="nav-link py-3">Contact</a></li>
+        </ul>
+      </div>
+    </header>
+
+    <main>
+      <!-- Hero -->
+      <section id="top" class="relative isolate flex min-h-svh items-center overflow-hidden pt-32 pb-20 lg:pt-24">
+        <div class="mx-auto grid w-full max-w-7xl items-center gap-16 px-5 sm:px-8 lg:grid-cols-12 lg:gap-10">
+          <div class="lg:col-span-7">
+            <p
+              data-reveal
+              class="inline-flex items-center gap-3 rounded-full border border-line bg-surface px-4 py-2 font-mono text-[11px] tracking-[0.12em] text-ink-muted uppercase backdrop-blur-md sm:text-xs sm:tracking-[0.18em]"
+            >
+              <span class="relative flex size-2">
+                <span class="absolute inline-flex size-full animate-ping rounded-full bg-accent opacity-75"></span>
+                <span class="relative inline-flex size-2 rounded-full bg-accent"></span>
+              </span>
+              Mechanical Engineering · NIT Surat
+            </p>
+
+            <h1
+              data-reveal
+              style="--delay: 120ms"
+              class="mt-8 font-display text-6xl leading-[0.92] font-bold tracking-tight text-ink sm:text-7xl xl:text-8xl"
+            >
+              Nashwin<br />
+              <span class="text-gradient">Mendonca.</span>
+            </h1>
+
+            <p
+              data-reveal
+              style="--delay: 240ms"
+              class="mt-8 flex flex-wrap items-baseline gap-x-3 text-xl text-ink-muted sm:text-2xl"
+            >
+              <span>I design, simulate and build</span>
+              <span class="font-display font-semibold text-ink">
+                <span
+                  data-typewriter='["robotic arms.", "custom thrust bearings.", "engine mechanisms.", "competition robots."]'
+                  >robotic arms.</span
+                ><span class="caret" aria-hidden="true"></span>
+              </span>
+            </p>
+
+            <p data-reveal style="--delay: 360ms" class="mt-6 max-w-xl text-base leading-relaxed text-ink-muted sm:text-lg">
+              Mechanical engineering student focused on CAD, FEA and topology optimization. I take parts from first sketch
+              to tested, 3D-printed prototype, and I’m a SOLIDWORKS Certified Professional (CSWP).
+            </p>
+
+            <div data-reveal style="--delay: 480ms" class="mt-10 flex flex-wrap gap-4">
+              <a href="#projects" class="btn-primary">
+                View projects
+                <svg class="icon size-4" aria-hidden="true"><use href="#i-arrow-right"></use></svg>
+              </a>
+              <a href="#contact" class="btn-ghost">Get in touch</a>
+            </div>
+          </div>
+
+          <div data-reveal style="--delay: 200ms" class="relative lg:col-span-5">
+            <div aria-hidden="true" class="absolute -inset-8 rounded-full bg-accent/20 blur-3xl"></div>
+            <div data-tilt class="relative mx-auto max-w-md transition-transform duration-500 ease-out will-change-transform">
+              <figure class="glass rounded-[2rem] p-3">
+                <img
+                  src="assets/images/arm-cad.jpg"
+                  width="685"
+                  height="680"
+                  alt="SOLIDWORKS render of the robotic arm"
+                  fetchpriority="high"
+                  class="w-full rounded-[1.5rem]"
+                />
+              </figure>
+
+              <div class="chip -left-3 top-10 animate-bob sm:-left-8" style="animation-delay: -2s">
+                <span class="grid size-11 place-items-center rounded-xl bg-accent/15 text-accent-ink">
+                  <svg class="icon" aria-hidden="true"><use href="#i-trend-down"></use></svg>
+                </span>
+                <div>
+                  <p class="font-display text-xl leading-none font-bold text-ink">−78%</p>
+                  <p class="mt-1 text-xs text-ink-muted">structural weight</p>
+                </div>
+              </div>
+
+              <div class="chip -right-3 bottom-12 animate-bob sm:-right-8" style="animation-delay: -5s">
+                <span class="grid size-11 place-items-center rounded-xl bg-cool/15 text-cool-ink">
+                  <svg class="icon" aria-hidden="true"><use href="#i-trophy"></use></svg>
+                </span>
+                <div>
+                  <p class="font-display text-xl leading-none font-bold text-ink">4th</p>
+                  <p class="mt-1 text-xs text-ink-muted">nationally · 130 teams</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Marquee -->
+      <section aria-label="Focus areas" class="relative overflow-hidden border-y border-line bg-surface py-6">
+        <div class="marquee-track flex w-max animate-marquee">
+          <div class="flex shrink-0 items-center gap-10 pr-10">
+            <span class="marquee-item">SolidWorks</span><span class="marquee-dot"></span>
+            <span class="marquee-item is-solid">ANSYS</span><span class="marquee-dot"></span>
+            <span class="marquee-item">Topology Optimization</span><span class="marquee-dot"></span>
+            <span class="marquee-item">Creep Analysis</span><span class="marquee-dot"></span>
+            <span class="marquee-item is-solid">3D Printing</span><span class="marquee-dot"></span>
+            <span class="marquee-item">GD&amp;T</span><span class="marquee-dot"></span>
+            <span class="marquee-item">Motion Studies</span><span class="marquee-dot"></span>
+            <span class="marquee-item is-solid">DD Robocon 2026</span><span class="marquee-dot"></span>
+          </div>
+        </div>
+      </section>
+
+      <!-- Stats -->
+      <section class="mx-auto max-w-7xl px-5 py-24 sm:px-8 lg:py-28">
+        <div class="grid grid-cols-2 gap-4 md:grid-cols-5">
+          <div data-reveal class="spotlight glass rounded-3xl p-6 sm:p-7">
+            <p class="font-display text-4xl font-bold text-ink sm:text-5xl"><span data-count="78" data-suffix="%">78%</span></p>
+            <p class="mt-3 text-sm leading-relaxed text-ink-muted">Structural weight cut on the robotic arm</p>
+          </div>
+          <div data-reveal style="--delay: 100ms" class="spotlight glass rounded-3xl p-6 sm:p-7">
+            <p class="font-display text-4xl font-bold text-ink sm:text-5xl">
+              <span data-prefix="~" data-count="196" data-suffix=" N">~196 N</span>
+            </p>
+            <p class="mt-3 text-sm leading-relaxed text-ink-muted">Axial load withstood by the custom thrust bearing</p>
+          </div>
+          <div data-reveal style="--delay: 200ms" class="spotlight glass rounded-3xl p-6 sm:p-7">
+            <p class="font-display text-4xl font-bold text-ink sm:text-5xl"><span data-count="160" data-suffix="+">160+</span></p>
+            <p class="mt-3 text-sm leading-relaxed text-ink-muted">Components across two cooperative competition robots</p>
+          </div>
+          <div data-reveal style="--delay: 300ms" class="spotlight glass rounded-3xl p-6 sm:p-7">
+            <p class="font-display text-4xl font-bold text-ink sm:text-5xl"><span data-count="60" data-suffix="+">60+</span></p>
+            <p class="mt-3 text-sm leading-relaxed text-ink-muted">3D-printed parts fabricated for DD Robocon 2026</p>
+          </div>
+          <div
+            data-reveal
+            style="--delay: 400ms"
+            class="spotlight glass col-span-2 rounded-3xl p-6 sm:p-7 md:col-span-1"
+          >
+            <p class="font-display text-4xl font-bold text-ink sm:text-5xl"><span data-count="4" data-suffix="th">4th</span></p>
+            <p class="mt-3 text-sm leading-relaxed text-ink-muted">Nationally among 130 teams at DD Robocon</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- About -->
+      <section id="about" class="mx-auto max-w-7xl px-5 py-24 sm:px-8 lg:py-32">
+        <div class="grid items-center gap-16 lg:grid-cols-12 lg:gap-20">
+          <div data-reveal class="lg:col-span-7">
+            <p class="eyebrow">About</p>
+            <h2 class="section-title">From CAD screen to tested hardware.</h2>
+            <div class="mt-8 space-y-5 text-lg leading-relaxed text-ink-muted">
+              <p>
+                I’m Nashwin, a mechanical engineering student at Sardar Vallabhbhai National Institute of Technology (NIT
+                Surat). I work where design, simulation and manufacturing meet: I model parts in SOLIDWORKS, optimize them in
+                ANSYS, and 3D-print them to see how they really behave.
+              </p>
+              <p>
+                At DD Robocon 2026 I designed Team Drishti’s two cooperative robots and owned the fabrication of their
+                3D-printed parts. The team placed 4th nationally out of 130.
+              </p>
+            </div>
+          </div>
+
+          <div class="grid gap-4 lg:col-span-5">
+            <div data-reveal class="spotlight glass flex gap-5 rounded-3xl p-6">
+              <span class="icon-box icon-box-ice"><svg class="icon" aria-hidden="true"><use href="#i-grad"></use></svg></span>
+              <div>
+                <h3 class="font-display text-lg font-semibold text-ink">Education</h3>
+                <p class="mt-1 text-sm leading-relaxed text-ink-muted">
+                  Mechanical Engineering, Sardar Vallabhbhai National Institute of Technology (NIT Surat)
+                </p>
+              </div>
+            </div>
+            <div data-reveal style="--delay: 120ms" class="spotlight glass flex gap-5 rounded-3xl p-6">
+              <span class="icon-box"><svg class="icon" aria-hidden="true"><use href="#i-award"></use></svg></span>
+              <div>
+                <h3 class="font-display text-lg font-semibold text-ink">Certification</h3>
+                <p class="mt-1 text-sm leading-relaxed text-ink-muted">
+                  SOLIDWORKS Design Professional (CSWP), Dassault Systèmes, June 2026
+                </p>
+              </div>
+            </div>
+            <div data-reveal style="--delay: 240ms" class="spotlight glass flex gap-5 rounded-3xl p-6">
+              <span class="icon-box icon-box-ice"><svg class="icon" aria-hidden="true"><use href="#i-trophy"></use></svg></span>
+              <div>
+                <h3 class="font-display text-lg font-semibold text-ink">Competition</h3>
+                <p class="mt-1 text-sm leading-relaxed text-ink-muted">DD Robocon 2026, Team Drishti: 4th nationally among 130 teams</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Skills -->
+      <section id="skills" class="mx-auto max-w-7xl px-5 py-24 sm:px-8 lg:py-32">
+        <div data-reveal class="max-w-2xl">
+          <p class="eyebrow">Toolkit</p>
+          <h2 class="section-title">The tools behind the work.</h2>
+          <p class="mt-5 text-lg leading-relaxed text-ink-muted">
+            Design, analysis and fabrication working together in one loop.
+          </p>
+        </div>
+
+        <div class="mt-14 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+          <article data-reveal class="spotlight glass rounded-3xl p-7">
+            <span class="icon-box"><svg class="icon" aria-hidden="true"><use href="#i-cube"></use></svg></span>
+            <p class="mt-6 font-mono text-xs tracking-[0.18em] text-cool-ink uppercase">SOLIDWORKS</p>
+            <h3 class="mt-2 font-display text-xl font-semibold text-ink">CAD modeling</h3>
+            <p class="mt-3 text-sm leading-relaxed text-ink-muted">
+              Part and assembly design, including a full 60° DOHC V6 engine assembly.
+            </p>
+          </article>
+
+          <article data-reveal style="--delay: 100ms" class="spotlight glass rounded-3xl p-7">
+            <span class="icon-box"><svg class="icon" aria-hidden="true"><use href="#i-activity"></use></svg></span>
+            <p class="mt-6 font-mono text-xs tracking-[0.18em] text-cool-ink uppercase">ANSYS</p>
+            <h3 class="mt-2 font-display text-xl font-semibold text-ink">Structural simulation</h3>
+            <p class="mt-3 text-sm leading-relaxed text-ink-muted">
+              Static structural and creep analyses to predict how parts deform under load.
+            </p>
+          </article>
+
+          <article data-reveal style="--delay: 200ms" class="spotlight glass rounded-3xl p-7">
+            <span class="icon-box"><svg class="icon" aria-hidden="true"><use href="#i-lattice"></use></svg></span>
+            <p class="mt-6 font-mono text-xs tracking-[0.18em] text-cool-ink uppercase">ANSYS</p>
+            <h3 class="mt-2 font-display text-xl font-semibold text-ink">Topology optimization</h3>
+            <p class="mt-3 text-sm leading-relaxed text-ink-muted">
+              Removing material where it isn’t carrying load while keeping stiffness where it matters.
+            </p>
+          </article>
+
+          <article data-reveal class="spotlight glass rounded-3xl p-7">
+            <span class="icon-box"><svg class="icon" aria-hidden="true"><use href="#i-printer"></use></svg></span>
+            <p class="mt-6 font-mono text-xs tracking-[0.18em] text-cool-ink uppercase">FDM · PLA · PETG</p>
+            <h3 class="mt-2 font-display text-xl font-semibold text-ink">3D printing &amp; DFM</h3>
+            <p class="mt-3 text-sm leading-relaxed text-ink-muted">
+              Print orientation, tolerances and parameters tuned for reliable, printed mechanical parts.
+            </p>
+          </article>
+
+          <article data-reveal style="--delay: 100ms" class="spotlight glass rounded-3xl p-7">
+            <span class="icon-box"><svg class="icon" aria-hidden="true"><use href="#i-ruler"></use></svg></span>
+            <p class="mt-6 font-mono text-xs tracking-[0.18em] text-cool-ink uppercase">Tolerancing</p>
+            <h3 class="mt-2 font-display text-xl font-semibold text-ink">GD&amp;T</h3>
+            <p class="mt-3 text-sm leading-relaxed text-ink-muted">
+              Geometric dimensioning and tolerancing for laser-cut parts and gussets that assemble cleanly.
+            </p>
+          </article>
+
+          <article data-reveal style="--delay: 200ms" class="spotlight glass rounded-3xl p-7">
+            <span class="icon-box"><svg class="icon" aria-hidden="true"><use href="#i-rotate"></use></svg></span>
+            <p class="mt-6 font-mono text-xs tracking-[0.18em] text-cool-ink uppercase">SOLIDWORKS</p>
+            <h3 class="mt-2 font-display text-xl font-semibold text-ink">Motion studies</h3>
+            <p class="mt-3 text-sm leading-relaxed text-ink-muted">
+              Checking valve timing, firing order and crankshaft, camshaft, piston and valvetrain synchronization.
+            </p>
+          </article>
+        </div>
+      </section>
+
+      <!-- Projects -->
+      <section id="projects" class="mx-auto max-w-7xl px-5 py-24 sm:px-8 lg:py-32">
+        <div data-reveal class="max-w-2xl">
+          <p class="eyebrow">Selected work</p>
+          <h2 class="section-title">Projects, from simulation to hardware.</h2>
+          <p class="mt-5 text-lg leading-relaxed text-ink-muted">
+            Each project is broken down into what I built, how I built it and what the results were. Click any image to
+            view it full size.
+          </p>
+        </div>
+
+        <div class="mt-20 space-y-28 lg:space-y-36">
+          <!-- 01 Robotic arm -->
+          <article class="grid items-center gap-12 lg:grid-cols-12 lg:gap-16" data-reveal>
+            <div class="relative lg:col-span-7">
+              <figure class="spotlight glass rounded-[2rem] p-3">
+                <button
+                  type="button"
+                  class="group block w-full cursor-zoom-in overflow-hidden rounded-[1.5rem]"
+                  data-lightbox="arm"
+                  data-src="assets/images/arm-cad.jpg"
+                  data-alt="SOLIDWORKS render of the robotic arm"
+                >
+                  <img
+                    src="assets/images/arm-cad.jpg"
+                    width="685"
+                    height="680"
+                    alt="SOLIDWORKS render of the robotic arm"
+                    loading="lazy"
+                    class="w-full transition duration-700 group-hover:scale-105"
+                  />
+                </button>
+              </figure>
+
+              <div class="chip -top-5 left-8">
+                <span class="grid size-10 place-items-center rounded-xl bg-accent/15 text-accent-ink">
+                  <svg class="icon size-5" aria-hidden="true"><use href="#i-trend-down"></use></svg>
+                </span>
+                <p class="text-sm font-semibold text-ink">−78% <span class="font-normal text-ink-muted">structural weight</span></p>
+              </div>
+
+              <div class="mt-4 grid grid-cols-3 gap-4">
+                <button
+                  type="button"
+                  class="thumb"
+                  data-lightbox="arm"
+                  data-src="assets/images/arm-physical.jpg"
+                  data-alt="The 3D-printed robotic arm built from the CAD design, with servos and wiring"
+                >
+                  <img
+                    src="assets/images/arm-physical.jpg"
+                    width="360"
+                    height="480"
+                    alt="The 3D-printed robotic arm built from the CAD design, with servos and wiring"
+                    loading="lazy"
+                  />
+                </button>
+                <button
+                  type="button"
+                  class="thumb"
+                  data-lightbox="arm"
+                  data-src="assets/images/arm-topology.jpg"
+                  data-alt="ANSYS topology optimization of an arm link at iteration 31"
+                >
+                  <img
+                    src="assets/images/arm-topology.jpg"
+                    style="object-position: 30% 50%"
+                    width="1273"
+                    height="597"
+                    alt="ANSYS topology optimization of an arm link at iteration 31"
+                    loading="lazy"
+                  />
+                </button>
+                <button
+                  type="button"
+                  class="thumb"
+                  data-lightbox="arm"
+                  data-src="assets/images/arm-bracket.jpg"
+                  data-alt="Topology-optimized, 3D-printed arm link with a lattice web"
+                >
+                  <img
+                    src="assets/images/arm-bracket.jpg"
+                    width="304"
+                    height="296"
+                    alt="Topology-optimized, 3D-printed arm link with a lattice web"
+                    loading="lazy"
+                  />
+                </button>
+              </div>
+            </div>
+
+            <div class="lg:col-span-5">
+              <p class="eyebrow">01 · Robotics · Topology optimization</p>
+              <h3 class="mt-4 font-display text-3xl leading-tight font-bold text-ink sm:text-4xl">
+                Robotic Arm Structural Optimization
+              </h3>
+              <p class="mt-5 text-lg leading-relaxed text-ink-muted">
+                A robot arm engineered to be much lighter while keeping its stiffness.
+              </p>
+              <dl class="mt-8 space-y-7">
+                <div>
+                  <dt class="label">What</dt>
+                  <dd class="mt-2 leading-relaxed text-ink/85">
+                    Designed and fabricated a robotic arm with high structural stiffness and less material.
+                  </dd>
+                </div>
+                <div>
+                  <dt class="label">How</dt>
+                  <dd class="mt-2">
+                    <ul class="list-disc space-y-2 pl-5 leading-relaxed text-ink/85 marker:text-cool-ink">
+                      <li>Initial CAD in SOLIDWORKS</li>
+                      <li>Topology optimization in ANSYS</li>
+                      <li>3D printed the optimized parts</li>
+                    </ul>
+                  </dd>
+                </div>
+                <div class="result-card">
+                  <dt class="label text-accent-ink">Results</dt>
+                  <dd class="mt-2">
+                    <ul class="list-disc space-y-2 pl-5 leading-relaxed text-ink marker:text-accent">
+                      <li>Structural weight dropped by <strong class="font-semibold">78%</strong></li>
+                      <li>Structural stiffness dropped by only <strong class="font-semibold">18%</strong></li>
+                    </ul>
+                  </dd>
+                </div>
+              </dl>
+              <ul class="mt-8 flex flex-wrap gap-2">
+                <li class="tag">SOLIDWORKS</li>
+                <li class="tag">ANSYS</li>
+                <li class="tag">Topology optimization</li>
+                <li class="tag">3D printing</li>
+              </ul>
+            </div>
+          </article>
+
+          <!-- 02 Thrust bearing -->
+          <article class="grid items-center gap-12 lg:grid-cols-12 lg:gap-16" data-reveal>
+            <div class="relative lg:order-last lg:col-span-7">
+              <figure class="spotlight glass rounded-[2rem] p-3">
+                <button
+                  type="button"
+                  class="group block w-full cursor-zoom-in overflow-hidden rounded-[1.5rem]"
+                  data-lightbox="bearing"
+                  data-src="assets/images/bearing-analysis.jpg"
+                  data-alt="ANSYS SpaceClaim view of the thrust bearing assembly set up for static structural analysis"
+                >
+                  <img
+                    src="assets/images/bearing-analysis.jpg"
+                    width="1600"
+                    height="998"
+                    alt="ANSYS SpaceClaim view of the thrust bearing assembly set up for static structural analysis"
+                    loading="lazy"
+                    class="w-full transition duration-700 group-hover:scale-105"
+                  />
+                </button>
+              </figure>
+
+              <div class="chip -top-5 right-8">
+                <span class="grid size-10 place-items-center rounded-xl bg-cool/15 text-cool-ink">
+                  <svg class="icon size-5" aria-hidden="true"><use href="#i-activity"></use></svg>
+                </span>
+                <p class="text-sm font-semibold text-ink">~196 N <span class="font-normal text-ink-muted">axial load</span></p>
+              </div>
+
+              <div class="mt-4 grid grid-cols-2 gap-4">
+                <button
+                  type="button"
+                  class="thumb"
+                  data-lightbox="bearing"
+                  data-src="assets/images/bearing-print.jpg"
+                  data-alt="Bearing guides 3D printed on a textured PEI build plate"
+                >
+                  <img
+                    src="assets/images/bearing-print.jpg"
+                    width="1062"
+                    height="736"
+                    alt="Bearing guides 3D printed on a textured PEI build plate"
+                    loading="lazy"
+                  />
+                </button>
+                <button
+                  type="button"
+                  class="thumb"
+                  data-lightbox="bearing"
+                  data-src="assets/images/bearing-test.jpg"
+                  data-alt="Thrust bearing raceway and mounting bracket on the test setup"
+                >
+                  <img
+                    src="assets/images/bearing-test.jpg"
+                    width="480"
+                    height="360"
+                    alt="Thrust bearing raceway and mounting bracket on the test setup"
+                    loading="lazy"
+                  />
+                </button>
+              </div>
+            </div>
+
+            <div class="lg:col-span-5">
+              <p class="eyebrow">02 · Mechanical design · Simulation · Testing</p>
+              <h3 class="mt-4 font-display text-3xl leading-tight font-bold text-ink sm:text-4xl">Custom Thrust Bearing</h3>
+              <p class="mt-5 text-lg leading-relaxed text-ink-muted">
+                A custom 110 × 110 × 10 mm bearing, abuse-tested and designed around a 150-hour operating target.
+              </p>
+              <dl class="mt-8 space-y-7">
+                <div>
+                  <dt class="label">What</dt>
+                  <dd class="mt-2 leading-relaxed text-ink/85">
+                    Designed and abuse-tested a custom thrust bearing with a target operating time of 150 h.
+                  </dd>
+                </div>
+                <div>
+                  <dt class="label">How</dt>
+                  <dd class="mt-2">
+                    <ul class="list-disc space-y-2 pl-5 leading-relaxed text-ink/85 marker:text-cool-ink">
+                      <li>ANSYS creep and static structural analysis</li>
+                      <li>3D printed the bearing guides</li>
+                    </ul>
+                  </dd>
+                </div>
+                <div class="result-card">
+                  <dt class="label text-accent-ink">Results</dt>
+                  <dd class="mt-2">
+                    <ul class="list-disc space-y-2 pl-5 leading-relaxed text-ink marker:text-accent">
+                      <li>Withstood an axial load of <strong class="font-semibold">~196 N</strong></li>
+                      <li>Only minute raceway deformation after <strong class="font-semibold">100 hours</strong> of operation</li>
+                    </ul>
+                  </dd>
+                </div>
+              </dl>
+              <ul class="mt-8 flex flex-wrap gap-2">
+                <li class="tag">ANSYS</li>
+                <li class="tag">Creep analysis</li>
+                <li class="tag">Static structural</li>
+                <li class="tag">3D printing</li>
+                <li class="tag">Abuse testing</li>
+              </ul>
+            </div>
+          </article>
+
+          <!-- 03 DOHC V6 -->
+          <article class="grid items-center gap-12 lg:grid-cols-12 lg:gap-16" data-reveal>
+            <div class="relative lg:col-span-7">
+              <figure class="spotlight glass rounded-[2rem] p-3">
+                <button
+                  type="button"
+                  class="group block w-full cursor-zoom-in overflow-hidden rounded-[1.5rem]"
+                  data-lightbox="dohc"
+                  data-src="assets/images/dohc-v6.jpg"
+                  data-alt="SOLIDWORKS render of a 60° DOHC V6 engine with crankshaft, pistons, camshafts and valvetrain"
+                >
+                  <img
+                    src="assets/images/dohc-v6.jpg"
+                    width="1003"
+                    height="865"
+                    alt="SOLIDWORKS render of a 60° DOHC V6 engine with crankshaft, pistons, camshafts and valvetrain"
+                    loading="lazy"
+                    class="w-full transition duration-700 group-hover:scale-105"
+                  />
+                </button>
+              </figure>
+
+              <div class="chip -top-5 left-8">
+                <span class="grid size-10 place-items-center rounded-xl bg-cool/15 text-cool-ink">
+                  <svg class="icon size-5" aria-hidden="true"><use href="#i-rotate"></use></svg>
+                </span>
+                <p class="text-sm font-semibold text-ink">60° V6 <span class="font-normal text-ink-muted">· DOHC</span></p>
+              </div>
+            </div>
+
+            <div class="lg:col-span-5">
+              <p class="eyebrow">03 · Engine design · Motion study</p>
+              <h3 class="mt-4 font-display text-3xl leading-tight font-bold text-ink sm:text-4xl">DOHC V6 CAD &amp; Motion Study</h3>
+              <p class="mt-5 text-lg leading-relaxed text-ink-muted">
+                A full 60° DOHC V6 engine, modeled so every moving part is timed and checked.
+              </p>
+              <dl class="mt-8 space-y-7">
+                <div>
+                  <dt class="label">What</dt>
+                  <dd class="mt-2 leading-relaxed text-ink/85">
+                    Designed and assembled a DOHC V6 engine (60° bank) in SOLIDWORKS.
+                  </dd>
+                </div>
+                <div>
+                  <dt class="label">How</dt>
+                  <dd class="mt-2">
+                    <ul class="list-disc space-y-2 pl-5 leading-relaxed text-ink/85 marker:text-cool-ink">
+                      <li>Accurate valve timing</li>
+                      <li>Firing order and combustion-cycle sequencing</li>
+                    </ul>
+                  </dd>
+                </div>
+                <div class="result-card">
+                  <dt class="label text-accent-ink">Results</dt>
+                  <dd class="mt-2 leading-relaxed text-ink">
+                    Crankshaft, camshaft, piston and valvetrain synchronization validated through motion studies.
+                  </dd>
+                </div>
+              </dl>
+              <ul class="mt-8 flex flex-wrap gap-2">
+                <li class="tag">SOLIDWORKS</li>
+                <li class="tag">Motion study</li>
+                <li class="tag">DOHC</li>
+                <li class="tag">V6 engine</li>
+              </ul>
+            </div>
+          </article>
+
+          <!-- 04 DD Robocon -->
+          <article class="grid items-center gap-12 lg:grid-cols-12 lg:gap-16" data-reveal>
+            <div class="relative w-full max-w-xl lg:order-last lg:col-span-7 lg:ml-auto">
+              <figure class="spotlight glass rounded-[2rem] p-3">
+                <button
+                  type="button"
+                  class="group block w-full cursor-zoom-in overflow-hidden rounded-[1.5rem]"
+                  data-lightbox="robocon"
+                  data-src="assets/images/robocon-team.jpg"
+                  data-alt="Team Drishti’s cooperative robots at DD Robocon 2026"
+                >
+                  <img
+                    src="assets/images/robocon-team.jpg"
+                    width="502"
+                    height="502"
+                    alt="Team Drishti’s cooperative robots at DD Robocon 2026"
+                    loading="lazy"
+                    class="w-full transition duration-700 group-hover:scale-105"
+                  />
+                </button>
+              </figure>
+
+              <div class="chip -bottom-5 left-8">
+                <span class="grid size-10 place-items-center rounded-xl bg-accent/15 text-accent-ink">
+                  <svg class="icon size-5" aria-hidden="true"><use href="#i-trophy"></use></svg>
+                </span>
+                <p class="text-sm font-semibold text-ink">4th <span class="font-normal text-ink-muted">nationally · 130 teams</span></p>
+              </div>
+            </div>
+
+            <div class="lg:col-span-5">
+              <p class="eyebrow">04 · Competition robotics · Team Drishti</p>
+              <h3 class="mt-4 font-display text-3xl leading-tight font-bold text-ink sm:text-4xl">DD Robocon 2026</h3>
+              <p class="mt-5 text-lg leading-relaxed text-ink-muted">
+                Two cooperative robots, designed, fabricated and integrated for a national robotics competition.
+              </p>
+              <dl class="mt-8 space-y-7">
+                <div>
+                  <dt class="label">What</dt>
+                  <dd class="mt-2 leading-relaxed text-ink/85">
+                    Designed 2 cooperative robots with 160+ components, 15+ assemblies and 5+ design iterations.
+                  </dd>
+                </div>
+                <div>
+                  <dt class="label">How</dt>
+                  <dd class="mt-2">
+                    <ul class="list-disc space-y-2 pl-5 leading-relaxed text-ink/85 marker:text-cool-ink">
+                      <li>Owned fabrication of 60+ 3D-printed parts, tuning orientation, tolerances and print parameters</li>
+                      <li>Applied GD&amp;T to laser-cut components and gussets for accurate assembly fit</li>
+                      <li>Applied DFM and creep analysis for reliable printed parts</li>
+                      <li>Collaborated with the ECE team on mechanical–electrical integration</li>
+                    </ul>
+                  </dd>
+                </div>
+                <div class="result-card">
+                  <dt class="label text-accent-ink">Results</dt>
+                  <dd class="mt-2">
+                    <ul class="list-disc space-y-2 pl-5 leading-relaxed text-ink marker:text-accent">
+                      <li>4th place nationally among 130 teams</li>
+                      <li>
+                        Rubber wheel mechanism redesigned as a PETG thrust-bearing system, reducing friction, wobble and motor
+                        heating
+                      </li>
+                    </ul>
+                  </dd>
+                </div>
+              </dl>
+              <ul class="mt-8 flex flex-wrap gap-2">
+                <li class="tag">Robotics</li>
+                <li class="tag">GD&amp;T</li>
+                <li class="tag">DFM</li>
+                <li class="tag">3D printing</li>
+                <li class="tag">PETG</li>
+              </ul>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <!-- Certification -->
+      <section id="certification" class="mx-auto max-w-7xl px-5 py-24 sm:px-8 lg:py-32">
+        <div class="glass relative overflow-hidden rounded-[2.5rem] p-6 sm:p-10 lg:p-14">
+          <div class="grid items-center gap-14 lg:grid-cols-12">
+            <div data-reveal class="lg:col-span-5">
+              <p class="eyebrow">Certification</p>
+              <h2 class="section-title">Certified SOLIDWORKS Professional.</h2>
+              <p class="mt-5 text-lg leading-relaxed text-ink-muted">
+                Awarded by Dassault Systèmes on June 8, 2026 for SOLIDWORKS Design Professional (CSWP).
+              </p>
+              <dl class="mt-8 grid grid-cols-2 gap-6">
+                <div>
+                  <dt class="label">Credential</dt>
+                  <dd class="mt-2 text-ink">CSWP · Design</dd>
+                </div>
+                <div>
+                  <dt class="label">Issued by</dt>
+                  <dd class="mt-2 text-ink">Dassault Systèmes</dd>
+                </div>
+                <div>
+                  <dt class="label">Date</dt>
+                  <dd class="mt-2 text-ink">June 8, 2026</dd>
+                </div>
+                <div>
+                  <dt class="label">Certificate ID</dt>
+                  <dd class="mt-2 font-mono text-sm text-ink">C-SMK8QZ2ULB</dd>
+                </div>
+              </dl>
+            </div>
+
+            <div data-reveal style="--delay: 150ms" class="relative lg:col-span-7">
+              <button
+                type="button"
+                class="group block w-full cursor-zoom-in overflow-hidden rounded-2xl shadow-2xl shadow-black/30 ring-1 ring-line"
+                data-lightbox="cert"
+                data-src="assets/images/cswp-certificate.jpg"
+                data-alt="SOLIDWORKS Design Professional (CSWP) certificate issued to Nashwin Mendonca by Dassault Systèmes"
+              >
+                <img
+                  src="assets/images/cswp-certificate.jpg"
+                  width="1155"
+                  height="820"
+                  alt="SOLIDWORKS Design Professional (CSWP) certificate issued to Nashwin Mendonca by Dassault Systèmes"
+                  loading="lazy"
+                  class="w-full transition duration-700 group-hover:scale-[1.02]"
+                />
+              </button>
+              <img
+                src="assets/images/cswp-badge.jpg"
+                width="654"
+                height="609"
+                alt="SOLIDWORKS Professional Design badge"
+                loading="lazy"
+                class="absolute -top-14 -right-4 w-24 rounded-full shadow-2xl shadow-black/40 sm:w-28 lg:-right-6"
+              />
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Contact -->
+      <section id="contact" class="mx-auto max-w-7xl px-5 pb-24 sm:px-8 lg:pb-32">
+        <div
+          data-reveal
+          class="relative overflow-hidden rounded-[2.5rem] border border-line bg-linear-to-br from-surface-strong via-surface to-transparent px-6 py-16 text-center sm:px-16 sm:py-24"
+        >
+          <div
+            aria-hidden="true"
+            class="absolute inset-x-1/4 top-0 h-px bg-linear-to-r from-transparent via-accent to-transparent"
+          ></div>
+          <p class="eyebrow">Contact</p>
+          <h2 class="mx-auto mt-4 max-w-3xl font-display text-4xl leading-[1.05] font-bold tracking-tight text-ink sm:text-6xl">
+            Let’s build something that works.
+          </h2>
+          <p class="mx-auto mt-6 max-w-xl text-lg leading-relaxed text-ink-muted">
+            Have a project, a question or an opportunity in mechanical design or robotics? Send me a message.
+          </p>
+          <div class="mt-10 flex flex-wrap items-center justify-center gap-4">
+            <a href="mailto:nashwinmendonca806@gmail.com" class="btn-primary">
+              <svg class="icon size-4" aria-hidden="true"><use href="#i-mail"></use></svg>
+              Email Nashwin
+            </a>
+            <button id="copy-email" type="button" class="btn-ghost" data-email="nashwinmendonca806@gmail.com">
+              <svg class="icon size-4" aria-hidden="true"><use href="#i-copy"></use></svg>
+              <span>Copy email</span>
+            </button>
+            <a href="Nashwin%20Portfolio.pdf" download class="btn-ghost">
+              <svg class="icon size-4" aria-hidden="true"><use href="#i-download"></use></svg>
+              Download PDF
+            </a>
+          </div>
+          <p class="mt-8 flex flex-wrap items-center justify-center gap-2 text-sm text-ink-faint">
+            <svg class="icon size-4" aria-hidden="true"><use href="#i-phone"></use></svg>
+            <a href="tel:+17753367202" class="text-ink transition hover:text-accent-ink">+1 (775) 336-7202</a>
+          </p>
+        </div>
+      </section>
+    </main>
+
+    <footer class="border-t border-line">
+      <div class="mx-auto flex max-w-7xl flex-col items-center justify-between gap-4 px-5 py-8 text-sm text-ink-faint sm:flex-row sm:px-8">
+        <p>© <span id="year">2026</span> Nashwin Mendonca</p>
+        <a href="#top" class="inline-flex items-center gap-2 transition hover:text-ink">
+          Back to top
+          <svg class="icon size-4" aria-hidden="true"><use href="#i-arrow-up"></use></svg>
+        </a>
+      </div>
+    </footer>
+
+    <!-- Lightbox -->
+    <dialog
+      id="lightbox"
+      class="fixed inset-0 m-0 h-full max-h-none w-full max-w-none overflow-hidden border-0 bg-transparent p-0 backdrop:bg-slate-950/90 backdrop:backdrop-blur-md open:flex"
+    >
+      <div id="lightbox-stage" class="flex h-full w-full flex-col items-center justify-center gap-5 p-6 sm:p-16">
+        <img
+          id="lightbox-img"
+          class="max-h-[78vh] max-w-full rounded-2xl object-contain shadow-2xl shadow-black/60"
+          alt=""
+        />
+        <p id="lightbox-caption" class="max-w-2xl text-center text-sm text-slate-300"></p>
+      </div>
+      <button id="lightbox-close" type="button" class="lightbox-btn absolute top-5 right-5" aria-label="Close image">
+        <svg class="icon" aria-hidden="true"><use href="#i-close"></use></svg>
+      </button>
+      <button
+        id="lightbox-prev"
+        type="button"
+        class="lightbox-btn absolute top-1/2 left-4 -translate-y-1/2 sm:left-8"
+        aria-label="Previous image"
+      >
+        <svg class="icon" aria-hidden="true"><use href="#i-chev-left"></use></svg>
+      </button>
+      <button
+        id="lightbox-next"
+        type="button"
+        class="lightbox-btn absolute top-1/2 right-4 -translate-y-1/2 sm:right-8"
+        aria-label="Next image"
+      >
+        <svg class="icon" aria-hidden="true"><use href="#i-chev-right"></use></svg>
+      </button>
+    </dialog>
+
+    <script src="js/main.js" defer></script>
+  </body>
+</html>
